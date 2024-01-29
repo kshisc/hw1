@@ -33,5 +33,9 @@ int main(int argc, char* argv[])
   printList(n1);
   printList(evens);
   printList(odds);
+
+  delete n1;
+  delete n2;
+  delete n3;
 }
 

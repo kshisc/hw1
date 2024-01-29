@@ -14,6 +14,7 @@ the function below should be the only one in this file.
 #include <cstddef>
 
 /* Add a prototype for a helper function here if you need */
+void splitHelper(Node*& in, Node*& odds, Node*& evens);
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
@@ -26,19 +27,19 @@ void split(Node*& in, Node*& odds, Node*& evens)
 }
 
 /* If you needed a helper function, write it here */
-void splitHelper(Node*& in2, Node*& odds, Node*& evens){
-  if(in2==nullptr){
+void splitHelper(Node*& in, Node*& odds, Node*& evens){
+  if(in==nullptr){
     odds=nullptr;
     evens=nullptr;
     return;
   }
 
-  if(((in2->value) % 2)==0){
-    evens=in2;
-    splitHelper(in2->next, odds, evens->next);
+  if(((in->value) % 2)==0){
+    evens=in;
+    splitHelper(in->next, odds, evens->next);
   }
   else{
-    odds=in2;
-    splitHelper(in2->next, odds->next, evens);
+    odds=in;
+    splitHelper(in->next, odds->next, evens);
   }
 }
